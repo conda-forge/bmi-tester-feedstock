@@ -1,4 +1,4 @@
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 
 package:
   name: bmi-tester
@@ -6,14 +6,14 @@ package:
 
 source:
   url: https://github.com/csdms/bmi-tester/archive/v{{ version }}.tar.gz
-  sha256: 66c01dfe916369dbaf88d1b5e890d5baab8603500a19154796a45f37df9d27b9
+  sha256: e6bf1ddc2a970b82a024814cf17130130e3d5ff1d9ede0b01532d8dffbd14ff5
 
 build:
   number: 0
   noarch: python
   entry_points:
     - bmi-test=bmi_tester.bmipytest:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   build:
@@ -52,3 +52,4 @@ about:
 extra:
   recipe-maintainers:
     - mcflugen
+    - mdpiper
