@@ -1,4 +1,4 @@
-{% set version = "0.4.4" %}
+{% set version = "0.5" %}
 
 package:
   name: bmi-tester
@@ -6,34 +6,42 @@ package:
 
 source:
   url: https://github.com/csdms/bmi-tester/archive/v{{ version }}.tar.gz
-  sha256: e6bf1ddc2a970b82a024814cf17130130e3d5ff1d9ede0b01532d8dffbd14ff5
+  sha256: 23d2223060f40cfe9a56a37e828c4ca438af3c0beab6ac7151fbb1658b6199b5
 
 build:
   number: 0
-  noarch: python
   entry_points:
     - bmi-test=bmi_tester.bmipytest:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  skip: true  # [py2k]
+
 
 requirements:
   build:
+    - {{ compiler("c") }}
+  host:
     - python
     - pip
+    - cython
+    - numpy
+    - udunits2
   run:
-    - python >=3
+    - python
     - numpy
     - pytest
-    - cfunits
+    - pytest-dependency
     - standard_names
     - scripting
     - model_metadata
     - click
+    - udunits2
 
 test:
   imports:
     - bmi_tester
   commands:
     - bmi-test --help
+    - bmi-test --version
 
 about:
   home: http://github.com/csdms/bmi-tester
