@@ -24,6 +24,7 @@ requirements:
     - pip
     - cython
     - numpy
+    - udunits2
   run:
     - python
     - numpy
@@ -33,6 +34,7 @@ requirements:
     - scripting
     - model_metadata
     - click
+    - udunits2
 
 test:
   imports:
