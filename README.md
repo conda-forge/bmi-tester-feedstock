@@ -5,9 +5,13 @@ Home: http://github.com/csdms/bmi-tester
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/bmi-tester-feedstock/blob/master/LICENSE.txt)
 
 Summary: Test Python model implementations of the Basic Model Interface
+
+Development: http://github.com/csdms/bmi-tester
+
+Documentation: http://bmi-tester.readthedocs.io/en/latest/
 
 The bmi_tester package provides a command-line utility for
 testing Python classes that implement the Basic Model Interface
