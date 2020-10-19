@@ -1,4 +1,4 @@
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: bmi-tester
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/csdms/bmi-tester/archive/v{{ version }}.tar.gz
-  sha256: 10721c53c085e5aecb96f08b6282f0a50deaf780cb26f929e6fc059b18bdfda2
+  sha256: 3b37c4cc7b43e98cb55c7784b9c4f10e9ac883d05eec83d1f4d58565bf5c3b00
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - bmi-test=bmi_tester.bmipytest:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
