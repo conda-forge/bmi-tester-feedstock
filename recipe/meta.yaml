@@ -1,4 +1,4 @@
-{% set version = "0.5.4" %}
+{% set version = "0.5.5" %}
 
 package:
   name: bmi-tester
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/csdms/bmi-tester/archive/v{{ version }}.tar.gz
-  sha256: d33789255f24484d6ec7ade9d36991158408334e3404893c81072b0691ce1f6f
+  sha256: 464ed382a63c3c1cb95194079d7e319d5fad51750861ef3f1956b689035de6c1
 
 build:
   number: 0
@@ -17,24 +17,20 @@ build:
 
 
 requirements:
-  build:
-    - {{ compiler("c") }}
   host:
     - python
     - pip
-    - cython
     - numpy
-    - udunits2
+    - gimli.units
   run:
     - python
     - numpy
     - pytest
     - pytest-dependency
     - standard_names
-    - scripting
     - model_metadata
     - click
-    - udunits2
+    - gimli.units
 
 test:
   imports:
@@ -47,7 +43,7 @@ about:
   home: http://github.com/csdms/bmi-tester
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.rst
   summary: Test Python model implementations of the Basic Model Interface
   description: |
     The bmi_tester package provides a command-line utility for
