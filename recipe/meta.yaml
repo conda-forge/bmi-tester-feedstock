@@ -9,7 +9,7 @@ source:
   sha256: 464ed382a63c3c1cb95194079d7e319d5fad51750861ef3f1956b689035de6c1
 
 build:
-  number: 3
+  number: 4
   entry_points:
     - bmi-test=bmi_tester.bmipytest:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
