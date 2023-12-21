@@ -13,7 +13,7 @@ build:
   entry_points:
     - bmi-test=bmi_tester.bmipytest:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  skip: true  # [py2k]
+  skip: true  # [py<39]
 
 
 requirements:
