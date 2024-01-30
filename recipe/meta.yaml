@@ -1,29 +1,29 @@
-{% set version = "0.5.6" %}
+{% set version = "0.5.7" %}
 
 package:
   name: bmi-tester
   version: {{ version }}
 
 source:
-  url: https://github.com/csdms/bmi-tester/archive/v{{ version }}.tar.gz
-  sha256: 2988c112c376a4fff50fec2c043090ce144f10123876cb3c60d04f7070714fa0
+  url: https://pypi.io/packages/source/b/bmi-tester/bmi_tester-0.5.7.tar.gz
+  sha256: 97ae380f8ee2af6e7530db234c4b9503922177e50045229e6278b6894aa72a80
 
 build:
+  noarch: python
   number: 0
   entry_points:
     - bmi-test=bmi_tester.bmipytest:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  skip: true  # [py<39]
 
 
 requirements:
   host:
-    - python
+    - python >=3.10
     - pip
     - numpy
     - gimli.units
   run:
-    - python
+    - python >=3.10
     - numpy
     - pytest
     - pytest-dependency
