@@ -1,18 +1,18 @@
-{% set version = "0.5.7" %}
+{% set version = "0.5.9" %}
 
 package:
   name: bmi-tester
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/b/bmi-tester/bmi_tester-0.5.7.tar.gz
-  sha256: 97ae380f8ee2af6e7530db234c4b9503922177e50045229e6278b6894aa72a80
+  url: https://pypi.io/packages/source/b/bmi-tester/bmi_tester-{{ version }}.tar.gz
+  sha256: 711c4993b0375a9008632e47639da6e2c23ac2377d0ffbaf54b7e35d00f9588c
 
 build:
   noarch: python
   number: 0
   entry_points:
-    - bmi-test=bmi_tester.bmipytest:main
+    - bmi-test=bmi_tester.main:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 
@@ -24,12 +24,12 @@ requirements:
     - gimli.units
   run:
     - python >=3.10
+    - importlib-resources  # [py<312]
     - numpy
     - pytest
     - pytest-dependency
     - standard_names
     - model_metadata
-    - click
     - gimli.units
 
 test:
@@ -43,7 +43,7 @@ about:
   home: http://github.com/csdms/bmi-tester
   license: MIT
   license_family: MIT
-  license_file: LICENSE.rst
+  license_file: LICENSE.md
   summary: Test Python model implementations of the Basic Model Interface
   description: |
     The bmi_tester package provides a command-line utility for
