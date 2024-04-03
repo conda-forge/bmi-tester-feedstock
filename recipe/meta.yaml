@@ -43,7 +43,7 @@ about:
   home: http://github.com/csdms/bmi-tester
   license: MIT
   license_family: MIT
-  license_file: LICENSE.rst
+  license_file: LICENSE.md
   summary: Test Python model implementations of the Basic Model Interface
   description: |
     The bmi_tester package provides a command-line utility for
