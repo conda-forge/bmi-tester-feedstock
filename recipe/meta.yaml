@@ -24,12 +24,12 @@ requirements:
     - gimli.units
   run:
     - python >=3.10
+    - importlib-resources  # [py<312]
     - numpy
     - pytest
     - pytest-dependency
     - standard_names
     - model_metadata
-    - click
     - gimli.units
 
 test:
