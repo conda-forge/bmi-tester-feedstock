@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set version = "0.5.9" %}
 
 package:
@@ -5,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/b/bmi-tester/bmi_tester-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/b/bmi-tester/bmi_tester-{{ version }}.tar.gz
   sha256: 711c4993b0375a9008632e47639da6e2c23ac2377d0ffbaf54b7e35d00f9588c
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - bmi-test=bmi_tester.main:main
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
@@ -18,12 +19,12 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - numpy
     - gimli.units
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - importlib-resources  # [py<312]
     - numpy
     - pytest
@@ -33,6 +34,8 @@ requirements:
     - gimli.units
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - bmi_tester
   commands:
